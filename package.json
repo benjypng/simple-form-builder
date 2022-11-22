@@ -1,0 +1,23 @@
+{
+  "name": "simple-form-builder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "parcel": "^2.8.0",
+    "postcss-cli": "^10.0.0",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.2.4",
+    "@tailwindcss/forms": "^0.5.3",
+    "postcss": "^8.4.19"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
