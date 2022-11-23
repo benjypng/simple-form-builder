@@ -95,10 +95,10 @@ export default function App() {
           </div>
         )}
 
-        <div>
-          {questions.length > 0 && (
-            <p className="text-xl mt-8 mb-2">Preview Form</p>
-          )}
+        {questions.length > 0 && (
+          <p className="text-xl mt-8 mb-2">Preview Form</p>
+        )}
+        <div id="formpreview">
           {questions.map((q, index) => (
             <FormElem
               key={index}
@@ -111,7 +111,10 @@ export default function App() {
 
         {questions.length > 0 && (
           <div className="text-right">
-            <button className="bg-green-800 text-white w-18 rounded-full px-2 py-1 mr-2">
+            <button
+              className="bg-green-800 text-white w-18 rounded-full px-2 py-1 mr-2"
+              onClick={() => alert("Form saved")}
+            >
               Save Form
             </button>
             <button
