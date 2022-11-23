@@ -1,7 +1,7 @@
 {
   "name": "simple-form-builder",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "license": "MIT",
   "homepage": "https://hkgnp.github.io/simple-form-builder",
   "scripts": {
