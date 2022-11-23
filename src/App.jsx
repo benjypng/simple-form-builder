@@ -37,7 +37,7 @@ export default function App() {
     } else {
       setFormQuestions([...questions, qnTemplate]);
       setSelectDropdown(false);
-      setQnTemplate({ question: " ", formType: " " });
+      setQnTemplate({ question: "", formType: "", dropdownOptions: "" });
     }
   }
 
@@ -107,27 +107,27 @@ export default function App() {
               dropdownOptions={q.dropdownOptions}
             />
           ))}
-        </div>
 
-        {questions.length > 0 && (
-          <div className="text-right">
-            <button
-              className="bg-green-800 text-white w-18 rounded-full px-2 py-1 mr-2"
-              onClick={() =>
-                window.print(document.getElementById("formpreview"))
-              }
-            >
-              Save Form
-            </button>
-            <button
-              className="bg-gray-800 text-white w-14 rounded-full px-2 py-1"
-              onClick={clearForm}
-            >
-              Clear
-            </button>
-          </div>
-        )}
-        {/* End content here */}
+          {questions.length > 0 && (
+            <div className="text-right">
+              <button
+                className="bg-green-800 text-white w-18 rounded-full px-2 py-1 mr-2"
+                onClick={() =>
+                  window.print(document.getElementById("formpreview"))
+                }
+              >
+                Save Form
+              </button>
+              <button
+                className="bg-gray-800 text-white w-14 rounded-full px-2 py-1"
+                onClick={clearForm}
+              >
+                Clear
+              </button>
+            </div>
+          )}
+          {/* End content here */}
+        </div>
       </div>
     </div>
   );
