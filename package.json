@@ -2,6 +2,9 @@
   "name": "simple-form-builder",
   "version": "1.0.0",
   "main": "index.html",
+  "targets": {
+    "main": false
+  },
   "license": "MIT",
   "homepage": "https://hkgnp.github.io/simple-form-builder",
   "scripts": {
