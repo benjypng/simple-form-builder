@@ -7,9 +7,14 @@ export default function App() {
   const [qnTemplate, setQnTemplate] = useState({
     question: "",
     formType: "",
+    dropdownOptions: "",
   });
+  const [selectDropdown, setSelectDropdown] = useState(false);
 
   function handleForm(e) {
+    if (e.target.value === "dropdown" || e.target.value === "multi") {
+      setSelectDropdown(true);
+    }
     setQnTemplate({
       ...qnTemplate,
       [e.target.name]: e.target.value,
@@ -17,15 +22,21 @@ export default function App() {
   }
 
   function clearForm() {
+    setSelectDropdown(false);
     setQnTemplate({ question: "", formType: "" });
     setFormQuestions([]);
   }
 
   function addToForm() {
-    if (qnTemplate.question === "" || qnTemplate.formType === "") {
+    if (
+      qnTemplate.question === "" ||
+      qnTemplate.formType === "" ||
+      (selectDropdown && qnTemplate.dropdownOptions === "")
+    ) {
       alert("Fields are mandatory");
     } else {
       setFormQuestions([...questions, qnTemplate]);
+      setSelectDropdown(false);
       setQnTemplate({ question: " ", formType: " " });
     }
   }
@@ -41,7 +52,7 @@ export default function App() {
           <div className="w-full">
             <input
               type="text"
-              className="py-0.5 px-3 rounded-lg w-96"
+              className="py-1 px-3 rounded-lg w-96"
               placeholder="Question"
               name="question"
               onChange={handleForm}
@@ -51,7 +62,7 @@ export default function App() {
           <div>
             <select
               name="formType"
-              className="w-48 py-1 px-3 rounded-md text-sm"
+              className="w-48 py-1 px-3 rounded-md"
               onChange={handleForm}
               value={qnTemplate.formType}
             >
@@ -71,19 +82,37 @@ export default function App() {
           </div>
         </div>
 
+        {selectDropdown && (
+          <div className="w-full">
+            <input
+              type="text"
+              className="py-0.5 px-3 rounded-lg w-96 text-sm"
+              placeholder="Dropdown options separated by a comma."
+              name="dropdownOptions"
+              onChange={handleForm}
+              value={qnTemplate.dropdownOptions}
+            />
+          </div>
+        )}
+
         <div>
           {questions.length > 0 && (
             <p className="text-xl mt-8 mb-2">Preview Form</p>
           )}
-          {questions.map((q) => (
-            <FormElem question={q.question} formType={q.formType} />
+          {questions.map((q, index) => (
+            <FormElem
+              key={index}
+              question={q.question}
+              formType={q.formType}
+              dropdownOptions={q.dropdownOptions}
+            />
           ))}
         </div>
 
         {questions.length > 0 && (
           <div className="text-right">
             <button className="bg-green-800 text-white w-18 rounded-full px-2 py-1 mr-2">
-              Submit
+              Save Form
             </button>
             <button
               className="bg-gray-800 text-white w-14 rounded-full px-2 py-1"
