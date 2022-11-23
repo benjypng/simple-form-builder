@@ -113,7 +113,9 @@ export default function App() {
           <div className="text-right">
             <button
               className="bg-green-800 text-white w-18 rounded-full px-2 py-1 mr-2"
-              onClick={() => alert("Form saved")}
+              onClick={() =>
+                window.print(document.getElementById("formpreview"))
+              }
             >
               Save Form
             </button>

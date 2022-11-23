@@ -24,7 +24,7 @@ export default function FormElem(props) {
   }
 
   return (
-    <div className="mb-3" id={props.key}>
+    <div className="mb-3">
       <div className="mb-1 ml-1">{props.question}</div>
       <div>{constructElem(props.formType)}</div>
     </div>
